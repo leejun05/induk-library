@@ -1,0 +1,44 @@
+/* 🌐 1. 전역 배경 디자인 (따뜻한 웜 메쉬 그라데이션) */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fbfaf7;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.03) 0px, transparent 50%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* 🪑 2. 좌석 컴포넌트 전용 마우스 오버 및 초강력 네온 글로우(Neon Glow) 효과 */
+.seat-button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* 마우스를 올리면 위로 통 튕겨 오름 */
+.seat-button:hover {
+  transform: translateY(-6px) scale(1.06) !important;
+  z-index: 999 !important;
+}
+
+/* 🟢 [예약 가능] 마우스를 올리면 인라인 테두리를 뚫고 초록색 네온 오라 폭발 */
+.seat-available:hover {
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.9) !important;
+  border: 1px solid rgba(34, 197, 94, 1) !important; /* !important 추가 */
+}
+
+/* 🔴 [이용 중] 마우스를 올리면 인라인 테두리를 뚫고 빨간색 네온 오라 폭발 */
+.seat-reserved:hover {
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.9) !important;
+  border: 1px solid rgba(239, 68, 68, 1) !important; /* !important 추가 */
+}
+
+/* 📟 3. 상단 헤더 '내 예약 현황' 전광판 애니메이션 */
+@keyframes tickerBlink {
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.2); opacity: 0.95; }
+  50% { box-shadow: 0 0 16px rgba(245, 158, 11, 0.5); opacity: 1; }
+}
+.status-ticker {
+  animation: tickerBlink 2s infinite ease-in-out;
+}
